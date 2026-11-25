@@ -1,0 +1,10 @@
+en:
+  search_control_update_title: 'An update is available for «%{name}»: %{installed} → %{latest}.'
+  search_control_update_title_git: «%{name}» has %{count} new changes on GitHub.
+  search_control_update_how_git: 'To update:'
+  search_control_update_how_copy_1: 'To update: download the'
+  search_control_update_archive: archive from GitHub
+  search_control_update_how_copy_2: and replace the plugins/%{folder} folder with its contents (rename the old folder instead of deleting it).
+  search_control_update_restart: Then restart Redmine.
+  search_control_update_migrate: 'This version changes the database; after replacing, run:'
+  search_control_update_all_changes: All changes

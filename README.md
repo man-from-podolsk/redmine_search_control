@@ -44,3 +44,22 @@ systemctl restart redmine        # юнит Puma
 4. Снять галочку у фильтра имени и нажать «Применить»: поле вернулось пустым.
 5. Добавить другой фильтр, например «Логин», с пустым значением: ошибка есть (плагин трогает только фильтр имени).
 6. Выгрузка в CSV и API `/users.json?name=...` работают как раньше.
+
+## Обновление
+
+Раз в сутки модуль сверяет свою версию с GitHub и, если есть новая, показывает уведомление на страницах «Администрирование» и «Модули» (видят только администраторы): что изменилось
+(из `CHANGELOG.md`) и как обновить. Запрос идёт с сервера Redmine на `api.github.com` и `raw.githubusercontent.com`
+в фоне и не замедляет страницы. Проверить сразу: `bundle exec rake redmine:search_control:check_update RAILS_ENV=production`.
+
+Если модуль установлен копированием:
+
+1. Скачайте архив https://github.com/man-from-podolsk/redmine_search_control/archive/refs/heads/main.zip.
+2. Переименуйте старую папку: `mv plugins/redmine_search_control /root/redmine_search_control.old`.
+3. Распакуйте архив в `plugins/redmine_search_control` (папка в архиве называется `redmine_search_control-main`, её нужно переименовать),
+   `chown -R www-data:www-data plugins/redmine_search_control`.
+4. Если в `CHANGELOG.md` для новой версии сказано «миграция», выполните
+   `bundle exec rake redmine:plugins:migrate NAME=redmine_search_control RAILS_ENV=production`.
+5. Перезапустите Redmine.
+
+Если установлен через `git clone`: `cd plugins/redmine_search_control && git pull` и перезапуск. Уведомление в этом случае
+считает новые коммиты, а не версии.

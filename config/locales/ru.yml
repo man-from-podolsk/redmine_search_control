@@ -1,0 +1,10 @@
+ru:
+  search_control_update_title: 'Для модуля «%{name}» есть обновление: %{installed} → %{latest}.'
+  search_control_update_title_git: 'Для модуля «%{name}» на GitHub новых изменений: %{count}.'
+  search_control_update_how_git: 'Обновить:'
+  search_control_update_how_copy_1: 'Обновить: скачайте'
+  search_control_update_archive: архив с GitHub
+  search_control_update_how_copy_2: и замените его содержимым папку plugins/%{folder} (старую папку лучше переименовать, а не удалять).
+  search_control_update_restart: Затем перезапустите Redmine.
+  search_control_update_migrate: 'В новой версии меняется база данных, после замены выполните:'
+  search_control_update_all_changes: Все изменения
